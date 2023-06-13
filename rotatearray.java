@@ -1,38 +1,29 @@
 public class rotatearray {
-    public static void rotate(int[] arr, int key) {
-
+    public static int[] rotate(int[] arr, int k) {
         int n = arr.length;
-        int i = 0;
-        key = n % key;
-        int[] arr1 = new int[arr.length];
-        // fill the elements in the new array n - k to array length
-        for (int j = n - key; j < n; j++) {
-            arr1[i++] = arr[j];
-
+        k = k % n;
+        int[] arr1 = new int[n];
+        int j = 0;
+        for (int i = n - k; i < n; i++) {
+            arr1[j++] = arr[i];
         }
-        // fill the elements in the new array from zero to n - k
-        for (int k = 0; k < n - key; k++) {
-            arr1[i++] = arr[k];
+        for (int i = 0; i < n - k; i++) {
+            arr1[j++] = arr[i];
         }
-        // return arr1;
-        print(arr1);
-
+        return arr1;
     }
 
-    // function for printting the rotated element
-    public static void print(int[] arr1) {
-        for (int i = 0; i < arr1.length; i++) {
-            System.out.print(arr1[i] + " ");
-
+    public static void print(int[] ans) {
+        System.out.println("The rotated array is:");
+        for (int i = 0; i < ans.length; i++) {
+            System.out.print(ans[i] + " ");
         }
-
     }
 
-    // this is main function
-    public static void main(String args[]) {
-        int[] arr = { 1, 2, 3, 4, 5 };
-        rotate(arr, 3);
-
+    public static void main(String[] args) {
+        int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        int k = 4;
+        int[] ans = rotate(arr, k);
+        print(ans);
     }
-
 }

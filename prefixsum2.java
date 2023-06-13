@@ -1,21 +1,20 @@
+
 import java.util.*;
 
-public class prefixsum {
+public class prefixsum2 {
     static int[] makeprefixsum(int[] arr) {
 
         int n = arr.length;
-        int[] pref = new int[n];
-        pref[0] = arr[0];
 
         for (int i = 1; i < n; i++) {
-            pref[i] = pref[i - 1] + arr[i];
+            arr[i] = arr[i - 1] + arr[i];
         }
-        return pref;
+        return arr;
 
     }
 
     public static void print(int[] pref) {
-        System.out.println("The sorted array is : ");
+        System.out.println("The prefixsum is : ");
 
         for (int i = 0; i < pref.length; i++) {
 

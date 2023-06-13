@@ -1,26 +1,24 @@
 import java.util.*;
-// efficient way to sort arrray
 
-public class sort01 {
-    static void sort(int[] arr) {
+public class sortoddeven {
+    static int[] sort(int[] arr, int n) {
         int left = 0;
-        int right = arr.length - 1;
-
+        int right = n - 1;
         while (left < right) {
-            if (arr[left] == 1 && arr[right] == 0) {
+            if (arr[left] % 2 == 1 && arr[right] % 2 == 0) {
                 swap(arr, left, right);
                 left++;
                 right--;
+
             }
-            if (arr[left] == 0) {
+            if (arr[left] % 2 == 0) {
                 left++;
             }
-            if (arr[right] == 1) {
+            if (arr[right] % 2 == 1) {
                 right--;
             }
-
         }
-
+        return arr;
     }
 
     public static void swap(int[] arr, int left, int right) {
@@ -31,26 +29,26 @@ public class sort01 {
 
     }
 
-    public static void print(int[] ans) {
+    public static void print(int[] arr) {
         System.out.println("The sorted array is:");
-        for (int i = 0; i < ans.length; i++) {
-            System.out.print(ans[i] + " ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of array:");
+        System.out.println("Enter the size of the array");
         int n = sc.nextInt();
         int[] arr = new int[n];
-
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
+
         }
-        System.out.println("Original array");
+        System.out.println("The original array is:");
         print(arr);
-        System.out.println("Sorted array");
-        sort(arr);
+        System.out.println("The sorted array is:");
+        sort(arr, n);
         print(arr);
 
     }
